@@ -1,0 +1,44 @@
+# ---------------------------------------
+# MapProxy example seeding configuration.
+# ---------------------------------------
+#
+# This is a minimal MapProxy seeding configuration.
+# See full_seed_example.yaml and the documentation for more options.
+#
+
+seeds:
+  bellamar_topografia:
+    caches: [bellamar_topografia]
+    grids: [webmercator]
+    coverages: [bellamar]
+    levels: [14,15,16,17,18,19,20]
+    refresh_before:
+      weeks: 2
+  bellamar_sentido_circulacion:
+    caches: [bellamar_sentido_circulacion]
+    grids: [webmercator]
+    coverages: [bellamar]
+    levels: [14,15,16,17,18,19,20]
+    refresh_before:
+      weeks: 2
+  bellamar_xarxa_residual:
+    caches: [bellamar_xarxa_residual]
+    grids: [webmercator]
+    coverages: [bellamar]
+    levels: [14,15,16,17,18,19,20]
+    refresh_before:
+      weeks: 2
+  bellamar_xarxa_pluvial:
+    caches: [bellamar_xarxa_pluvial]
+    grids: [webmercator]
+    coverages: [bellamar]
+    levels: [14,15,16,17,18,19,20]
+    refresh_before:
+      weeks: 2
+
+cleanups:
+
+coverages:
+  bellamar:
+    bbox: [1.9364, 41.2967, 2.0044, 41.2632]
+    srs: "EPSG:4326"

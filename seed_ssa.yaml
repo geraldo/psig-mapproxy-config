@@ -1,0 +1,75 @@
+# ---------------------------------------
+# MapProxy example seeding configuration.
+# ---------------------------------------
+#
+# This is a minimal MapProxy seeding configuration.
+# See full_seed_example.yaml and the documentation for more options.
+#
+
+seeds:
+  ssa:
+    caches: [ssa_poum_layer_tm_juliol_2006,ssa_poum_layer_patrimoni,ssa_poum_layer_cataleg,ssa_poum_group_ambits_cataleg,ssa_poum_layer_proteccio_dels_rius,ssa_poum_layer_ambits_al_su,ssa_poum_layer_sectors_-_pau,ssa_poum_layer_profunditat_edificable,ssa_poum_group_condicions_dedificacio,ssa_poum_group_qualificacio,ssa_poum_layer_regim_del_sol,ssa_poum_group_carrerer,ssa_poum_group_planejament_ambiental]
+    grids: [webmercator]
+    coverages: [ssa]
+    levels: [13,14,15,16,17,18,19,20]
+      #from: 13
+      #to: 20
+    refresh_before:
+      #time: 2018-07-05T12:00:00
+      weeks: 1
+  ssa_poum_layer_tm_juliol_2006:
+    caches: [ssa_poum_layer_tm_juliol_2006]
+    grids: [webmercator]
+    coverages: [ssa]
+    levels: [13,14,15,16,17,18,19,20]
+    refresh_before:
+      weeks: 2
+  ssa_poum_layer_patrimoni:
+    caches: [ssa_poum_layer_patrimoni]
+    grids: [webmercator]
+    coverages: [ssa]
+    levels: [13,14,15,16,17,18,19,20]
+    refresh_before:
+      weeks: 2
+  ssa_poum_layer_cataleg:
+    caches: [ssa_poum_layer_cataleg]
+    grids: [webmercator]
+    coverages: [ssa]
+    levels: [13,14,15,16,17,18,19,20]
+    refresh_before:
+      weeks: 2
+  ssa_poum_group_ambits_cataleg:
+    caches: [ssa_poum_group_ambits_cataleg]
+    grids: [webmercator]
+    coverages: [ssa]
+    levels: [13,14,15,16,17,18,19,20]
+    refresh_before:
+      weeks: 2
+  ssa_poum_group_carrerer:
+    caches: [ssa_poum_group_carrerer]
+    grids: [webmercator]
+    coverages: [ssa]
+    levels: [13,14,15,16,17,18,19,20]
+    refresh_before:
+      weeks: 2
+  ssa_poum_group_planejament_ambiental:
+    caches: [ssa_poum_group_planejament_ambiental]
+    grids: [webmercator]
+    coverages: [ssa]
+    levels: [13,14,15,16,17,18,19,20]
+    refresh_before:
+      weeks: 2
+  ssa_poum_group_condicions_dedificacio:
+    caches: [ssa_poum_group_condicions_dedificacio]
+    grids: [webmercator]
+    coverages: [ssa]
+    levels: [13,14,15,16,17,18,19,20]
+    refresh_before:
+      weeks: 2
+
+cleanups:
+
+coverages:
+  ssa:
+    bbox: [1.75, 41.4, 1.82, 41.47]
+    srs: "EPSG:4326"

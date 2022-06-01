@@ -1,0 +1,870 @@
+# -------------------------------
+# MapProxy example configuration.
+# -------------------------------
+#
+# This is a minimal MapProxy configuration.
+# See full_example.yaml and the documentation for more options.
+#
+
+# Starts the following services:
+# Demo:
+#     http://localhost:8080/demo
+# WMS:
+#     capabilities: http://localhost:8080/service?REQUEST=GetCapabilities
+# WMTS:
+#     capabilities: http://localhost:8080/wmts/1.0.0/WMTSCapabilities.xml
+#     first tile: http://localhost:8080/wmts/osm/webmercator/0/0/0.png
+# Tile service (compatible with OSM/etc.)
+#     first tile: http://localhost:8080/tiles/osm/webmercator/0/0/0.png
+# TMS:
+#     note: TMS is not compatible with OSM/Google Maps/etc.
+#     fist tile: http://localhost:8080/tms/1.0.0/osm/webmercator/0/0/0.png
+# KML:
+#     initial doc: http://localhost:8080/kml/osm/webmercator
+
+services:
+  demo:
+  wms:
+    md:
+        title: SSA MapProxy WMS Proxy
+        abstract: MapProxy WMS Proxy for SSA
+        online_resource: http://mapa.psig.es/ssa/
+        contact:
+            organization: PSIG
+            email: info@psig.es
+        access_constraints:
+            This service is for internal use only.
+        fees: 'None'
+
+layers:
+  - name: ssa
+    title: POUM SSA
+    sources: [ssa_poum_cache]
+  - name: ssa_poum_layer_tm_juliol_2006
+    title: T.M. (Juliol 2006)
+    sources: [ssa_poum_layer_tm_juliol_2006]
+  - name: ssa_poum_layer_patrimoni
+    title: Patrimoni
+    sources: [ssa_poum_layer_patrimoni]
+  - name: ssa_poum_layer_cataleg
+    title: Catàleg
+    sources: [ssa_poum_layer_cataleg]
+  - name: ssa_poum_group_ambits_cataleg
+    title: Àmbits catàleg
+    sources: [ssa_poum_group_ambits_cataleg]
+  - name: ssa_poum_layer_proteccio_dels_rius
+    title: Protecció dels rius
+    sources: [ssa_poum_layer_proteccio_dels_rius]
+  - name: ssa_poum_layer_ambits_al_su
+    title: Àmbits al SU
+    sources: [ssa_poum_layer_ambits_al_su]
+  - name: ssa_poum_layer_sectors_-_pau
+    title: Sectors - PAU
+    sources: [ssa_poum_layer_sectors_-_pau]
+  - name: ssa_poum_layer_profunditat_edificable
+    title: Condicions d'edificació
+    sources: [ssa_poum_layer_profunditat_edificable]
+  - name: ssa_poum_group_condicions_dedificacio
+    title: Condicions d'edificació
+    sources: [ssa_poum_group_condicions_dedificacio]
+  - name: ssa_poum_group_qualificacio
+    title: Qualificació
+    sources: [ssa_poum_group_qualificacio]
+  - name: ssa_poum_layer_regim_del_sol
+    title: Règim del sòl
+    sources: [ssa_poum_layer_regim_del_sol]
+  - name: ssa_poum_group_carrerer
+    title: Carrerer
+    sources: [ssa_poum_group_carrerer]
+  - name: ssa_poum_group_planejament_ambiental
+    title: Planejament ambiental
+    sources: [ssa_poum_group_planejament_ambiental]
+  - name: ctbb_poum
+    title: POUM CTBB
+    sources: [ctbb_poum]
+  - name: ctbb_poum_group__limits_administratius
+    title: ctbb_poum_group__limits_administratius
+    sources: [ctbb_poum_group__limits_administratius]
+  - name: ctbb_poum_layer__nuclis_urbans
+    title: ctbb_poum_layer__nuclis_urbans
+    sources: [ctbb_poum_layer__nuclis_urbans]
+  - name: ctbb_poum_layer_equipaments
+    title: ctbb_poum_layer_equipaments
+    sources: [ctbb_poum_layer_equipaments]
+  - name: ctbb_poum_group__cercadors
+    title: ctbb_poum_group__cercadors
+    sources: [ctbb_poum_group__cercadors]
+  - name: ctbb_poum_group_cataleg_de_bens_a_protegir
+    title: ctbb_poum_group_cataleg_de_bens_a_protegir
+    sources: [ctbb_poum_group_cataleg_de_bens_a_protegir]
+  - name: ctbb_poum_group_ordenacio
+    title: ctbb_poum_group_ordenacio
+    sources: [ctbb_poum_group_ordenacio]
+  - name: ctbb_poum_group_estructura_viaria_i_infraestructures
+    title: ctbb_poum_group_estructura_viaria_i_infraestructures
+    sources: [ctbb_poum_group_estructura_viaria_i_infraestructures]
+  - name: ctbb_poum_layer_planejament_derivat_excempt
+    title: ctbb_poum_layer_planejament_derivat_excempt
+    sources: [ctbb_poum_layer_planejament_derivat_excempt]
+  - name: ctbb_poum_group_ambits_de_planejament_i_de_gestio
+    title: ctbb_poum_group_ambits_de_planejament_i_de_gestio
+    sources: [ctbb_poum_group_ambits_de_planejament_i_de_gestio]
+  - name: ctbb_poum_group_qualificacions
+    title: ctbb_poum_group_qualificacions
+    sources: [ctbb_poum_group_qualificacions]
+  - name: ctbb_poum_layer_regim_del_sol_especific
+    title: ctbb_poum_layer_regim_del_sol_especific
+    sources: [ctbb_poum_layer_regim_del_sol_especific]
+  - name: ctbb_poum_layer_regim_del_sol
+    title: ctbb_poum_layer_regim_del_sol
+    sources: [ctbb_poum_layer_regim_del_sol]
+  - name: ctbb_guia_group_serveis
+    sources: [ctbb_guia_group_serveis]
+    title: ctbb_guia_group_serveis
+  - name: ctbb_guia_layer_equipaments
+    sources: [ctbb_guia_layer_equipaments]
+    title: ctbb_guia_layer_equipaments
+  - name: ctbb_guia_layer_jocs_infantils
+    sources: [ctbb_guia_layer_jocs_infantils]
+    title: ctbb_guia_layer_jocs_infantils
+  - name: ctbb_guia_layer_corre_can
+    sources: [ctbb_guia_layer_corre_can]
+    title: ctbb_guia_layer_corre_can
+  - name: ctbb_guia_group__limits_administratius
+    sources: [ctbb_poum_group__limits_administratius]
+    title: ctbb_poum_group__limits_administratius
+  - name: ctbb_guia_group__cercadors
+    sources: [ctbb_poum_group__cercadors]
+    title: ctbb_poum_group__cercadors
+  - name: ctbb_guia_group_estructura_viaria_i_infraestructures
+    sources: [ctbb_poum_group_estructura_viaria_i_infraestructures]
+    title: ctbb_poum_group_estructura_viaria_i_infraestructures
+  - name: ctbb_guia_layer__nuclis_urbans
+    sources: [ctbb_guia_layer__nuclis_urbans]
+    title: ctbb_guia_layer__nuclis_urbans
+  - name: ctbb_guia_layer_hidrants_daigua
+    sources: [ctbb_guia_layer_hidrants_daigua]
+    title: ctbb_guia_layer_hidrants_daigua
+  - name: ctbb_guia_group_serveis
+    sources: [ctbb_guia_group_serveis]
+    title: ctbb_guia_group_serveis
+  - name: ctbb_guia_group_bus_l1_nucli_urba_-_estacio
+    sources: [ctbb_guia_group_bus_l1]
+    title: ctbb_guia_group_bus_l1
+  - name: ctbb_guia_group_bus_l2_nucli_urba_-_urbanitzacions
+    sources: [ctbb_guia_group_bus_l2]
+    title: ctbb_guia_group_bus_l2
+  - name: ctbb_guia_group_bus_c2_terrassa_-_martorell
+    sources: [ctbb_guia_group_bus_c2]
+    title: ctbb_guia_group_bus_c2
+  - name: ctbb_guia_group_bus_c6_castellbisbal_-_rubi
+    sources: [ctbb_guia_group_bus_c6]
+    title: ctbb_guia_group_bus_c6
+  - name: ctbb_guia_group_bus_c7_castellbisbal_-_terrassa_-_sabadell
+    sources: [ctbb_guia_group_bus_c7]
+    title: ctbb_guia_group_bus_c7
+  - name: ctbb_guia_group_bus_l66_castellbisbal_-_sant_andreu_de_la_barca
+    sources: [ctbb_guia_group_bus_l66]
+    title: ctbb_guia_group_bus_l66
+  - name: ctbb_guia_group_bus_l67_castellbisbal_-_barcelona
+    sources: [ctbb_guia_group_bus_l67]
+    title: ctbb_guia_group_bus_l67
+  - name: ctbb_guia_group_bus_nit_n41_barcelona_-_sant_sadurni_danoia
+    sources: [ctbb_guia_group_bus_n41]
+    title: ctbb_guia_group_bus_n41
+  - name: ctbb_guia_group_bus_nit_n51_barcelona_-_esparreguera
+    sources: [ctbb_guia_group_bus_n51]
+    title: ctbb_guia_group_bus_n51
+  - name: ctbb_guia_layer_parades
+    sources: [ctbb_guia_layer_parades]
+    title: ctbb_guia_layer_parades
+  - name: ctbb_activitats_layer_activitats
+    sources: [ctbb_activitats_layer_activitats]
+    title: ctbb_activitats_layer_activitats
+  - name: ctbb_activitats_group__limits_administratius
+    sources: [ctbb_poum_group__limits_administratius]
+    title: ctbb_poum_group__limits_administratius
+  - name: ctbb_activitats_group__cercadors
+    sources: [ctbb_poum_group__cercadors]
+    title: ctbb_poum_group__cercadors
+  - name: ctbb_activitats_layer__nuclis_urbans
+    sources: [ctbb_guia_layer__nuclis_urbans]
+    title: ctbb_guia_layer__nuclis_urbans
+  - name: ctbb_activitats_group_qualificacions
+    sources: [ctbb_poum_group_qualificacions]
+    title: ctbb_poum_group_qualificacions
+  - name: ctbb_activitats_group_estructura_viaria_i_infraestructures
+    sources: [ctbb_poum_group_estructura_viaria_i_infraestructures]
+    title: ctbb_poum_group_estructura_viaria_i_infraestructures
+  - name: ctbb_ortofotos_historial_layer_tm_atermenament
+    sources: [ctbb_poum_group__limits_administratius]
+    title: ctbb_poum_group__limits_administratius
+  - name: ctbb_ortofotos_historial_group_carrers_i_portals
+    sources: [ctbb_poum_group__cercadors]
+    title: ctbb_poum_group__cercadors
+  - name: ctbb_poum_parcel_layer_parcellari
+    sources: [ctbb_poum_parcel_layer_parcellari]
+    title: ctbb_poum_parcel_layer_parcellari
+  - name: ctbb_poum_parcel_group_cataleg_de_bens_a_protegir
+    title: ctbb_poum_parcel_group_cataleg_de_bens_a_protegir
+    sources: [ctbb_poum_group_cataleg_de_bens_a_protegir]
+  - name: ctbb_poum_parcel_group_ordenacio
+    title: ctbb_poum_group_ordenacio
+    sources: [ctbb_poum_group_ordenacio]
+  - name: ctbb_poum_parcel_group__cercadors
+    title: ctbb_poum_group__cercadors
+    sources: [ctbb_poum_group__cercadors]
+  - name: ctbb_poum_parcel_group_estructura_viaria_i_infraestructures
+    sources: [ctbb_poum_group_estructura_viaria_i_infraestructures]
+    title: ctbb_poum_group_estructura_viaria_i_infraestructures
+  - name: ctbb_poum_parcel_layer_planejament_derivat_excempt
+    title: ctbb_poum_layer_planejament_derivat_excempt
+    sources: [ctbb_poum_layer_planejament_derivat_excempt]
+  - name: ctbb_poum_parcel_group_ambits_de_planejament_i_de_gestio
+    title: ctbb_poum_group_ambits_de_planejament_i_de_gestio
+    sources: [ctbb_poum_group_ambits_de_planejament_i_de_gestio]
+  - name: ctbb_poum_parcel_group_qualificacions
+    title: ctbb_poum_group_qualificacions
+    sources: [ctbb_poum_group_qualificacions]
+  - name: ctbb_poum_parcel_layer_regim_del_sol_especific
+    title: ctbb_poum_layer_regim_del_sol_especific
+    sources: [ctbb_poum_layer_regim_del_sol_especific]
+  - name: ctbb_poum_parcel_layer_regim_del_sol
+    title: ctbb_poum_layer_regim_del_sol
+    sources: [ctbb_poum_layer_regim_del_sol]
+  - name: bellamar_topografia
+    title: bellamar_topografia
+    sources: [bellamar_topografia]
+  - name: bellamar_sentido_circulacion
+    title: bellamar_sentido_circulacion
+    sources: [bellamar_sentido_circulacion]
+  - name: bellamar_xarxa_residual
+    title: bellamar_xarxa_residual
+    sources: [bellamar_xarxa_residual]
+  - name: bellamar_xarxa_pluvial
+    title: bellamar_xarxa_pluvial
+    sources: [bellamar_xarxa_pluvial]
+
+caches:
+  ssa_poum_cache:
+    grids: [webmercator]
+    sources: [ssa_poum_layer_tm_juliol_2006,ssa_poum_layer_patrimoni,ssa_poum_layer_cataleg,ssa_poum_group_ambits_cataleg,ssa_poum_layer_proteccio_dels_rius,ssa_poum_layer_ambits_al_su,ssa_poum_layer_sectors_-_pau,ssa_poum_layer_profunditat_edificable,ssa_poum_group_condicions_dedificacio,ssa_poum_group_qualificacio,ssa_poum_layer_regim_del_sol,ssa_poum_group_carrerer]
+  ssa_poum_layer_tm_juliol_2006:
+    format: imgformat
+    grids: [webmercator]
+    sources: [ssa_poum_layer_tm_juliol_2006]
+  ssa_poum_layer_patrimoni:
+    format: imgformat
+    grids: [webmercator]
+    sources: [ssa_poum_layer_patrimoni]
+  ssa_poum_layer_cataleg:
+    grids: [webmercator]
+    sources: [ssa_poum_layer_cataleg]
+  ssa_poum_group_ambits_cataleg:
+    grids: [webmercator]
+    sources: [ssa_poum_group_ambits_cataleg]
+  ssa_poum_layer_proteccio_dels_rius:
+    grids: [webmercator]
+    sources: [ssa_poum_layer_proteccio_dels_rius]
+  ssa_poum_layer_ambits_al_su:
+    grids: [webmercator]
+    sources: [ssa_poum_layer_ambits_al_su]
+    meta_size: [4,4]
+    meta_buffer: 100
+  ssa_poum_layer_sectors_-_pau:
+    grids: [webmercator]
+    sources: [ssa_poum_layer_sectors_-_pau]
+    meta_size: [4,4]
+    meta_buffer: 200
+  ssa_poum_layer_profunditat_edificable:
+    grids: [webmercator]
+    sources: [ssa_poum_layer_profunditat_edificable]
+  ssa_poum_group_condicions_dedificacio:
+    grids: [webmercator]
+    sources: [ssa_poum_group_condicions_dedificacio]
+  ssa_poum_group_qualificacio:
+    grids: [webmercator]
+    sources: [ssa_poum_group_qualificacio]
+  ssa_poum_layer_regim_del_sol:
+    grids: [webmercator]
+    sources: [ssa_poum_layer_regim_del_sol]
+  ssa_poum_group_carrerer:
+    grids: [webmercator]
+    sources: [ssa_poum_group_carrerer]
+    meta_size: [4,4]
+    meta_buffer: 100
+  ssa_poum_group_planejament_ambiental:
+    grids: [webmercator]
+    sources: [ssa_poum_group_planejament_ambiental]
+    meta_size: [4,4]
+    meta_buffer: 100
+  ctbb_poum:
+    grids: [webmercator]
+    sources: [ctbb_poum_group__limits_administratius, ctbb_poum_layer__nuclis_urbans, ctbb_poum_layer_equipaments, ctbb_poum_group__cercadors, ctbb_poum_group_cataleg_de_bens_a_protegir, ctbb_poum_group_ordenacio, ctbb_poum_group_estructura_viaria_i_infraestructures, ctbb_poum_layer_planejament_derivat_excempt, ctbb_poum_group_ambits_de_planejament_i_de_gestio, ctbb_poum_group_qualificacions, ctbb_poum_layer_regim_del_sol_especific, ctbb_poum_layer_regim_del_sol]
+  ctbb_poum_group__limits_administratius:
+    grids: [webmercator]
+    sources: [ctbb_poum_group__limits_administratius]
+  ctbb_poum_layer__nuclis_urbans:
+    grids: [webmercator]
+    sources: [ctbb_poum_layer__nuclis_urbans]
+  ctbb_poum_layer_equipaments:
+    grids: [webmercator]
+    sources: [ctbb_poum_layer_equipaments]
+  ctbb_poum_group__cercadors:
+    grids: [webmercator]
+    sources: [ctbb_poum_group__cercadors]
+  ctbb_poum_group_cataleg_de_bens_a_protegir:
+    grids: [webmercator]
+    sources: [ctbb_poum_group_cataleg_de_bens_a_protegir]
+  ctbb_poum_group_ordenacio:
+    grids: [webmercator]
+    sources: [ctbb_poum_group_ordenacio]
+  ctbb_poum_group_estructura_viaria_i_infraestructures:
+    grids: [webmercator]
+    sources: [ctbb_poum_group_estructura_viaria_i_infraestructures]
+  ctbb_poum_layer_planejament_derivat_excempt:
+    grids: [webmercator]
+    sources: [ctbb_poum_layer_planejament_derivat_excempt]
+  ctbb_poum_group_ambits_de_planejament_i_de_gestio:
+    grids: [webmercator]
+    sources: [ctbb_poum_group_ambits_de_planejament_i_de_gestio]
+    meta_size: [5,5]
+    meta_buffer: 256
+  ctbb_poum_group_qualificacions:
+    grids: [webmercator]
+    sources: [ctbb_poum_group_qualificacions]
+  ctbb_poum_layer_regim_del_sol_especific:
+    grids: [webmercator]
+    sources: [ctbb_poum_layer_regim_del_sol_especific]
+  ctbb_poum_layer_regim_del_sol:
+    grids: [webmercator]
+    sources: [ctbb_poum_layer_regim_del_sol]
+  ctbb_guia:
+    grids: [webmercator]
+    sources: [ctbb_guia_group_serveis, ctbb_guia_layer_equipaments, ctbb_guia_layer_jocs_infantils, ctbb_guia_layer_corre_can, ctbb_guia_group__cercadors, ctbb_guia_layer__nuclis_urbans]
+  ctbb_guia_group_serveis:
+    grids: [webmercator]
+    sources: [ctbb_guia_group_serveis]
+  ctbb_guia_layer_equipaments:
+    grids: [webmercator]
+    sources: [ctbb_guia_layer_equipaments]
+  ctbb_guia_layer_jocs_infantils:
+    grids: [webmercator]
+    sources: [ctbb_guia_layer_jocs_infantils]
+  ctbb_guia_layer_corre_can:
+    grids: [webmercator]
+    sources: [ctbb_guia_layer_corre_can]
+  ctbb_guia_group__cercadors:
+    grids: [webmercator]
+    sources: [ctbb_poum_group__cercadors]
+  ctbb_guia_layer__nuclis_urbans:
+    grids: [webmercator]
+    sources: [ctbb_guia_layer__nuclis_urbans]
+  ctbb_guia_layer_hidrants_daigua:
+    grids: [webmercator]
+    sources: [ctbb_guia_layer_hidrants_daigua]
+  ctbb_guia_group_serveis:
+    grids: [webmercator]
+    sources: [ctbb_guia_group_serveis]
+  ctbb_guia_group_bus_l1:
+    grids: [webmercator]
+    sources: [ctbb_guia_group_bus_l1]
+  ctbb_guia_group_bus_l2:
+    grids: [webmercator]
+    sources: [ctbb_guia_group_bus_l2]
+  ctbb_guia_group_bus_c2:
+    grids: [webmercator]
+    sources: [ctbb_guia_group_bus_c2]
+  ctbb_guia_group_bus_c6:
+    grids: [webmercator]
+    sources: [ctbb_guia_group_bus_c6]
+  ctbb_guia_group_bus_c7:
+    grids: [webmercator]
+    sources: [ctbb_guia_group_bus_c7]
+  ctbb_guia_group_bus_l66:
+    grids: [webmercator]
+    sources: [ctbb_guia_group_bus_l66]
+  ctbb_guia_group_bus_l67:
+    grids: [webmercator]
+    sources: [ctbb_guia_group_bus_l67]
+  ctbb_guia_group_bus_n41:
+    grids: [webmercator]
+    sources: [ctbb_guia_group_bus_n41]
+  ctbb_guia_group_bus_n51:
+    grids: [webmercator]
+    sources: [ctbb_guia_group_bus_n51]
+  ctbb_guia_layer_parades:
+    grids: [webmercator]
+    sources: [ctbb_guia_layer_parades]
+  ctbb_activitats:
+    grids: [webmercator]
+    sources: [ctbb_activitats_layer_activitats]
+  ctbb_activitats_layer_activitats:
+    grids: [webmercator]
+    sources: [ctbb_activitats_layer_activitats]
+  ctbb_ortofotos_historial:
+    grids: [webmercator]
+    sources: [ctbb_ortofotos_historial_layer_tm_atermenament, ctbb_ortofotos_historial_group_carrers_i_portals]
+  ctbb_ortofotos_historial_layer_tm_atermenament:
+    grids: [webmercator]
+    sources: [ctbb_poum_group__limits_administratius]
+  ctbb_ortofotos_historial_group_carrers_i_portals:
+    grids: [webmercator]
+    sources: [ctbb_poum_group__cercadors]
+  ctbb_poum_parcel_layer_parcellari:
+    grids: [webmercator]
+    sources: [ctbb_poum_parcel_layer_parcellari]
+  bellamar_topografia:
+    grids: [webmercator]
+    sources: [bellamar_topografia]
+  bellamar_sentido_circulacion:
+    grids: [webmercator]
+    sources: [bellamar_sentido_circulacion]
+  bellamar_xarxa_residual:
+    grids: [webmercator]
+    sources: [bellamar_xarxa_residual]
+  bellamar_xarxa_pluvial:
+    grids: [webmercator]
+    sources: [bellamar_xarxa_pluvial]
+
+sources:
+  ssa_poum_wms:
+    type: wms
+    req:
+      url: http://mapa.psig.es/qgisserver/cgi-bin/qgis_mapserv.fcgi
+      layers: POUM SSA
+      map: /home/ubuntu/ssa/ssa_poum.qgs
+  ssa_poum_layer_tm_juliol_2006:
+    type: wms
+    image:
+      transparent_color: '#ffffff'
+      transparent_color_tolerance: 0
+    req:
+      url: http://mapa.psig.es/qgisserver/cgi-bin/qgis_mapserv.fcgi
+      layers: T.M. (Juliol 2006)
+      transparent: true
+      map: /home/ubuntu/ssa/ssa_poum.qgs
+  ssa_poum_layer_patrimoni:
+    type: wms
+    image:
+      transparent_color: '#ffffff'
+      transparent_color_tolerance: 0
+    req:
+      url: http://mapa.psig.es/qgisserver/cgi-bin/qgis_mapserv.fcgi
+      layers: Patrimoni
+      transparent: true
+      map: /home/ubuntu/ssa/ssa_poum.qgs
+  ssa_poum_layer_cataleg:
+    type: wms
+    req:
+      url: http://mapa.psig.es/qgisserver/cgi-bin/qgis_mapserv.fcgi
+      layers: Catàleg
+      transparent: true
+      map: /home/ubuntu/ssa/ssa_poum.qgs
+  ssa_poum_group_ambits_cataleg:
+    type: wms
+    req:
+      url: http://mapa.psig.es/qgisserver/cgi-bin/qgis_mapserv.fcgi
+      layers: Àmbits catàleg
+      transparent: true
+      map: /home/ubuntu/ssa/ssa_poum.qgs
+  ssa_poum_layer_proteccio_dels_rius:
+    type: wms
+    req:
+      url: http://mapa.psig.es/qgisserver/cgi-bin/qgis_mapserv.fcgi
+      layers: Protecció dels rius
+      transparent: true
+      map: /home/ubuntu/ssa/ssa_poum.qgs
+  ssa_poum_layer_ambits_al_su:
+    type: wms
+    req:
+      url: http://mapa.psig.es/qgisserver/cgi-bin/qgis_mapserv.fcgi
+      layers: Àmbits al SU
+      transparent: true
+      map: /home/ubuntu/ssa/ssa_poum.qgs
+  ssa_poum_layer_sectors_-_pau:
+    type: wms
+    req:
+      url: http://mapa.psig.es/qgisserver/cgi-bin/qgis_mapserv.fcgi
+      layers: Sectors - PAU
+      transparent: true
+      map: /home/ubuntu/ssa/ssa_poum.qgs
+  ssa_poum_layer_profunditat_edificable:
+    type: wms
+    req:
+      url: http://mapa.psig.es/qgisserver/cgi-bin/qgis_mapserv.fcgi
+      layers: Profunditat edificable
+      transparent: true
+      map: /home/ubuntu/ssa/ssa_poum.qgs
+  ssa_poum_group_condicions_dedificacio:
+    type: wms
+    req:
+      url: http://mapa.psig.es/qgisserver/cgi-bin/qgis_mapserv.fcgi
+      layers: Condicions d'edificació
+      transparent: true
+      map: /home/ubuntu/ssa/ssa_poum.qgs
+  ssa_poum_group_qualificacio:
+    type: wms
+    req:
+      url: http://mapa.psig.es/qgisserver/cgi-bin/qgis_mapserv.fcgi
+      layers: Qualificació
+      transparent: true
+      map: /home/ubuntu/ssa/ssa_poum.qgs
+  ssa_poum_layer_regim_del_sol:
+    type: wms
+    req:
+      url: http://mapa.psig.es/qgisserver/cgi-bin/qgis_mapserv.fcgi
+      layers: Règim del sòl
+      transparent: true
+      map: /home/ubuntu/ssa/ssa_poum.qgs
+  ssa_poum_group_carrerer:
+    type: wms
+    req:
+      url: http://mapa.psig.es/qgisserver/cgi-bin/qgis_mapserv.fcgi
+      layers: Carrerer #Portals,Carrers
+      transparent: true
+      map: /home/ubuntu/ssa/ssa_poum.qgs
+  ssa_poum_group_planejament_ambiental:
+    type: wms
+    req:
+      url: http://mapa.psig.es/qgisserver/cgi-bin/qgis_mapserv.fcgi
+      layers: Planejament ambiental
+      transparent: true
+      map: /home/ubuntu/ssa/ssa_poum.qgs
+  ctbb_poum_group__limits_administratius:
+    type: wms
+    image:
+      transparent_color: '#ffffff'
+      transparent_color_tolerance: 0
+    req:
+      url: http://mapa.psig.es/qgisserver/cgi-bin/qgis_mapserv.fcgi
+      layers: "@ Límits administratius"
+      transparent: true
+      map: /home/ubuntu/ctbb/poum.qgs
+  ctbb_poum_layer__nuclis_urbans:
+    type: wms
+    req:
+      url: http://mapa.psig.es/qgisserver/cgi-bin/qgis_mapserv.fcgi
+      layers: "@ Nuclis urbans"
+      transparent: true
+      map: /home/ubuntu/ctbb/poum.qgs
+    image:
+      transparent_color: '#ffffff'
+      transparent_color_tolerance: 0
+  ctbb_poum_layer_equipaments:
+    type: wms
+    req:
+      url: http://mapa.psig.es/qgisserver/cgi-bin/qgis_mapserv.fcgi
+      layers: "Equipaments"
+      transparent: true
+      map: /home/ubuntu/ctbb/poum.qgs
+  ctbb_poum_group__cercadors:
+    type: wms
+    image:
+      transparent_color: '#ffffff'
+      transparent_color_tolerance: 0
+    req:
+      url: http://mapa.psig.es/qgisserver/cgi-bin/qgis_mapserv.fcgi
+      layers: "@ Cercadors"
+      transparent: true
+      map: /home/ubuntu/ctbb/poum.qgs
+  ctbb_poum_group_cataleg_de_bens_a_protegir:
+    type: wms
+    image:
+      transparent_color: '#ffffff'
+      transparent_color_tolerance: 0
+    req:
+      url: http://mapa.psig.es/qgisserver/cgi-bin/qgis_mapserv.fcgi
+      layers: Catàleg de béns a protegir
+      transparent: true
+      map: /home/ubuntu/ctbb/poum.qgs
+  ctbb_poum_group_ordenacio:
+    type: wms
+    image:
+      transparent_color: '#ffffff'
+      transparent_color_tolerance: 0
+    req:
+      url: http://mapa.psig.es/qgisserver/cgi-bin/qgis_mapserv.fcgi
+      layers: Ordenació
+      transparent: true
+      map: /home/ubuntu/ctbb/poum.qgs
+  ctbb_poum_group_estructura_viaria_i_infraestructures:
+    type: wms
+    image:
+      transparent_color: '#ffffff'
+      transparent_color_tolerance: 0
+    req:
+      url: http://mapa.psig.es/qgisserver/cgi-bin/qgis_mapserv.fcgi
+      layers: Estructura viària i infraestructures
+      transparent: true
+      map: /home/ubuntu/ctbb/poum.qgs
+  ctbb_poum_layer_planejament_derivat_excempt:
+    type: wms
+    req:
+      url: http://mapa.psig.es/qgisserver/cgi-bin/qgis_mapserv.fcgi
+      layers: Planejament derivat excempt
+      transparent: true
+      map: /home/ubuntu/ctbb/poum.qgs
+  ctbb_poum_group_ambits_de_planejament_i_de_gestio:
+    type: wms
+    req:
+      url: http://mapa.psig.es/qgisserver/cgi-bin/qgis_mapserv.fcgi
+      layers: Àmbits de planejament i de gestió
+      transparent: true
+      map: /home/ubuntu/ctbb/poum.qgs
+  ctbb_poum_group_qualificacions:
+    type: wms
+    req:
+      url: http://mapa.psig.es/qgisserver/cgi-bin/qgis_mapserv.fcgi
+      layers: Qualificacions
+      transparent: true
+      map: /home/ubuntu/ctbb/poum.qgs
+    image:
+      transparent_color: '#ffffff'
+      transparent_color_tolerance: 0
+  ctbb_poum_layer_regim_del_sol_especific:
+    type: wms
+    req:
+      url: http://mapa.psig.es/qgisserver/cgi-bin/qgis_mapserv.fcgi
+      layers: Règim del Sòl Específic
+      transparent: true
+      map: /home/ubuntu/ctbb/poum.qgs
+    image:
+      transparent_color: '#ffffff'
+      transparent_color_tolerance: 0
+  ctbb_poum_layer_regim_del_sol:
+    type: wms
+    req:
+      url: http://mapa.psig.es/qgisserver/cgi-bin/qgis_mapserv.fcgi
+      layers: Règim del Sòl
+      transparent: true
+      map: /home/ubuntu/ctbb/poum.qgs
+    image:
+      transparent_color: '#ffffff'
+      transparent_color_tolerance: 0
+  ctbb_guia_group_serveis:
+    type: wms
+    req:
+      url: http://mapa.psig.es/qgisserver/cgi-bin/qgis_mapserv.fcgi
+      layers: Serveis
+      transparent: true
+      map: /home/ubuntu/ctbb/guia.qgs
+  ctbb_guia_layer_equipaments:
+    type: wms
+    req:
+      url: http://mapa.psig.es/qgisserver/cgi-bin/qgis_mapserv.fcgi
+      layers: Equipaments
+      transparent: true
+      map: /home/ubuntu/ctbb/guia.qgs
+  ctbb_guia_layer_jocs_infantils:
+    type: wms
+    req:
+      url: http://mapa.psig.es/qgisserver/cgi-bin/qgis_mapserv.fcgi
+      layers: Jocs infantils
+      transparent: true
+      map: /home/ubuntu/ctbb/guia.qgs
+    image:
+      transparent_color: '#ffffff'
+      transparent_color_tolerance: 0
+  ctbb_guia_layer_corre_can:
+    type: wms
+    req:
+      url: http://mapa.psig.es/qgisserver/cgi-bin/qgis_mapserv.fcgi
+      layers: Corre can
+      transparent: true
+      map: /home/ubuntu/ctbb/guia.qgs
+    image:
+      transparent_color: '#ffffff'
+      transparent_color_tolerance: 0
+  ctbb_guia_layer__nuclis_urbans:
+    type: wms
+    req:
+      url: http://mapa.psig.es/qgisserver/cgi-bin/qgis_mapserv.fcgi
+      layers: "@ Nuclis urbans"
+      transparent: true
+      version: 1.3.0
+      map: /home/ubuntu/ctbb/guia.qgs
+    image:
+      transparent_color: '#ffffff'
+      transparent_color_tolerance: 0
+  ctbb_guia_layer_hidrants_daigua:
+    type: wms
+    req:
+      url: http://mapa.psig.es/qgisserver/cgi-bin/qgis_mapserv.fcgi
+      layers: Hidrants d'aigua
+      transparent: true
+      map: /home/ubuntu/ctbb/guia.qgs
+    image:
+      transparent_color: '#ffffff'
+      transparent_color_tolerance: 0
+  ctbb_guia_group_serveis:
+    type: wms
+    req:
+      url: http://mapa.psig.es/qgisserver/cgi-bin/qgis_mapserv.fcgi
+      layers: Desfibril·ladors,Centres d'emergències,Farmàcies,Benzineres
+      transparent: true
+      map: /home/ubuntu/ctbb/guia.qgs
+    image:
+      transparent_color: '#ffffff'
+      transparent_color_tolerance: 0
+  ctbb_guia_group_bus_l1:
+    type: wms
+    req:
+      url: http://mapa.psig.es/qgisserver/cgi-bin/qgis_mapserv.fcgi
+      layers: 'BUS L1: Nucli urbà - Estació'
+      transparent: true
+      map: /home/ubuntu/ctbb/guia.qgs
+    image:
+      transparent_color: '#ffffff'
+      transparent_color_tolerance: 0
+  ctbb_guia_group_bus_l2:
+    type: wms
+    req:
+      url: http://mapa.psig.es/qgisserver/cgi-bin/qgis_mapserv.fcgi
+      layers: 'BUS L2: Nucli urbà - Urbanitzacions'
+      transparent: true
+      map: /home/ubuntu/ctbb/guia.qgs
+    image:
+      transparent_color: '#ffffff'
+      transparent_color_tolerance: 0
+  ctbb_guia_group_bus_c2:
+    type: wms
+    req:
+      url: http://mapa.psig.es/qgisserver/cgi-bin/qgis_mapserv.fcgi
+      layers: 'BUS C2: Terrassa - Martorell'
+      transparent: true
+      map: /home/ubuntu/ctbb/guia.qgs
+    image:
+      transparent_color: '#ffffff'
+      transparent_color_tolerance: 0
+  ctbb_guia_group_bus_c6:
+    type: wms
+    req:
+      url: http://mapa.psig.es/qgisserver/cgi-bin/qgis_mapserv.fcgi
+      layers: 'BUS C6: Castellbisbal - Rubí'
+      transparent: true
+      map: /home/ubuntu/ctbb/guia.qgs
+    image:
+      transparent_color: '#ffffff'
+      transparent_color_tolerance: 0
+  ctbb_guia_group_bus_c7:
+    type: wms
+    req:
+      url: http://mapa.psig.es/qgisserver/cgi-bin/qgis_mapserv.fcgi
+      layers: 'BUS C7: Castellbisbal - Terrassa - Sabadell'
+      transparent: true
+      map: /home/ubuntu/ctbb/guia.qgs
+    image:
+      transparent_color: '#ffffff'
+      transparent_color_tolerance: 0
+  ctbb_guia_group_bus_l66:
+    type: wms
+    req:
+      url: http://mapa.psig.es/qgisserver/cgi-bin/qgis_mapserv.fcgi
+      layers: 'BUS L66: Castellbisbal - Sant Andreu de la Barca'
+      transparent: true
+      map: /home/ubuntu/ctbb/guia.qgs
+    image:
+      transparent_color: '#ffffff'
+      transparent_color_tolerance: 0
+  ctbb_guia_group_bus_l67:
+    type: wms
+    req:
+      url: http://mapa.psig.es/qgisserver/cgi-bin/qgis_mapserv.fcgi
+      layers: 'BUS L67: Castellbisbal - Barcelona'
+      transparent: true
+      map: /home/ubuntu/ctbb/guia.qgs
+    image:
+      transparent_color: '#ffffff'
+      transparent_color_tolerance: 0
+  ctbb_guia_group_bus_n41:
+    type: wms
+    req:
+      url: http://mapa.psig.es/qgisserver/cgi-bin/qgis_mapserv.fcgi
+      layers: 'BUS NIT N41: Barcelona - Sant Sadurní d''Anoia'
+      transparent: true
+      map: /home/ubuntu/ctbb/guia.qgs
+    image:
+      transparent_color: '#ffffff'
+      transparent_color_tolerance: 0
+  ctbb_guia_group_bus_n51:
+    type: wms
+    req:
+      url: http://mapa.psig.es/qgisserver/cgi-bin/qgis_mapserv.fcgi
+      layers: 'BUS NIT N51: Barcelona - Esparreguera'
+      transparent: true
+      map: /home/ubuntu/ctbb/guia.qgs
+    image:
+      transparent_color: '#ffffff'
+      transparent_color_tolerance: 0
+  ctbb_guia_layer_parades:
+    type: wms
+    req:
+      url: http://mapa.psig.es/qgisserver/cgi-bin/qgis_mapserv.fcgi
+      layers: Parades
+      transparent: true
+      map: /home/ubuntu/ctbb/guia.qgs
+    image:
+      transparent_color: '#ffffff'
+      transparent_color_tolerance: 0
+  ctbb_activitats_layer_activitats:
+    type: wms
+    req:
+      url: http://mapa.psig.es/qgisserver/cgi-bin/qgis_mapserv.fcgi
+      layers: "Activitats"
+      transparent: true
+      map: /home/ubuntu/ctbb/activitats.qgs
+    image:
+      transparent_color: '#ffffff'
+      transparent_color_tolerance: 0
+  ctbb_poum_parcel_layer_parcellari:
+    type: wms
+    req:
+      url: http://mapa.psig.es/qgisserver/cgi-bin/qgis_mapserv.fcgi
+      layers: Parcel·lari
+      transparent: true
+      map: /home/ubuntu/ctbb/poum_parcel.qgs
+  bellamar_topografia:
+    type: wms
+    req:
+      url: http://mapa.psig.es/qgisserver/cgi-bin/qgis_mapserv.fcgi
+      layers: "Anotacions,Vegetació (punts),Comunicacions (lineas),Vegetació (líneas),Construccions (líneas),Hidrografia (líneas)"
+      transparent: true
+      map: /home/ubuntu/bellamar/Obra_Bellamar_web.qgs
+  bellamar_sentido_circulacion:
+    type: wms
+    req:
+      url: http://mapa.psig.es/qgisserver/cgi-bin/qgis_mapserv.fcgi
+      layers: "sentido_circulacion"
+      transparent: true
+      map: /home/ubuntu/bellamar/Obra_Bellamar_web.qgs
+  bellamar_xarxa_residual:
+    type: wms
+    req:
+      url: http://mapa.psig.es/qgisserver/cgi-bin/qgis_mapserv.fcgi
+      layers: "xarxa_residual"
+      transparent: true
+      map: /home/ubuntu/bellamar/Obra_Bellamar_web.qgs
+  bellamar_xarxa_pluvial:
+    type: wms
+    req:
+      url: http://mapa.psig.es/qgisserver/cgi-bin/qgis_mapserv.fcgi
+      layers: "xarxa_pluvial"
+      transparent: true
+      map: /home/ubuntu/bellamar/Obra_Bellamar_web.qgs
+
+grids:
+  webmercator:
+    base: GLOBAL_WEBMERCATOR
+    res: [500000,200000,100000,50000,20000,10000,5000,2000,1000,500,200,100,50,25,10,5,2,1,0.5,0.25,0.125]
+  webmercator_icgc:
+    base: GLOBAL_WEBMERCATOR
+
+
+globals:
+  image:
+    formats:
+      imgformat:
+        format: image/png
+        mode: P
+        transparent: true

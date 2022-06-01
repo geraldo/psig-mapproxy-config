@@ -1,0 +1,279 @@
+# ---------------------------------------
+# MapProxy example seeding configuration.
+# ---------------------------------------
+#
+# This is a minimal MapProxy seeding configuration.
+# See full_seed_example.yaml and the documentation for more options.
+#
+
+seeds:
+  ctbb:
+    caches: [ctbb_poum, ctbb_guia, ctbb_activitats]
+    grids: [webmercator]
+    coverages: [ctbb]
+    #levels: [20]
+    levels: [13,14,15,16,17,18,19,20]
+      #from: 13
+      #to: 20
+    refresh_before:
+      #time: 2018-07-05T12:00:00
+      weeks: 2
+  ctbb_poum:
+    caches: [ctbb_poum_group__limits_administratius, ctbb_poum_layer__nuclis_urbans, ctbb_poum_group__cercadors, ctbb_poum_group_cataleg_de_bens_a_protegir, ctbb_poum_group_ordenacio, ctbb_poum_group_estructura_viaria_i_infraestructures, ctbb_poum_layer_planejament_derivat_excempt, ctbb_poum_group_ambits_de_planejament_i_de_gestio, ctbb_poum_group_qualificacions, ctbb_poum_layer_regim_del_sol_especific, ctbb_poum_layer_regim_del_sol]
+    grids: [webmercator]
+    coverages: [ctbb]
+    levels: [13,14,15,16,17,18,19,20]
+    refresh_before:
+      weeks: 2
+  ctbb_poum_group__limits_administratius:
+    caches: [ctbb_poum_group__limits_administratius]
+    grids: [webmercator]
+    coverages: [ctbb]
+    levels: [13,14,15,16,17,18,19,20]
+    refresh_before:
+      weeks: 2
+  ctbb_poum_layer__nuclis_urbans:
+    caches: [ctbb_poum_layer__nuclis_urbans]
+    grids: [webmercator]
+    coverages: [ctbb]
+    levels: [13,14,15,16,17,18,19,20]
+    refresh_before:
+      weeks: 2
+  ctbb_poum_group__cercadors:
+    caches: [ctbb_poum_group__cercadors]
+    grids: [webmercator]
+    coverages: [ctbb]
+    levels: [13,14,15,16,17,18,19,20]
+    refresh_before:
+      weeks: 2
+  ctbb_poum_group_cataleg_de_bens_a_protegir:
+    caches: [ctbb_poum_group_cataleg_de_bens_a_protegir]
+    grids: [webmercator]
+    coverages: [ctbb]
+    levels: [13,14,15,16,17,18,19,20]
+    refresh_before:
+      weeks: 2
+  ctbb_poum_group_ordenacio:
+    caches: [ctbb_poum_group_ordenacio]
+    grids: [webmercator]
+    coverages: [ctbb]
+    levels: [13,14,15,16,17,18,19,20]
+    refresh_before:
+      weeks: 2
+  ctbb_poum_group_estructura_viaria_i_infraestructures:
+    caches: [ctbb_poum_group_estructura_viaria_i_infraestructures]
+    grids: [webmercator]
+    coverages: [ctbb]
+    levels: [13,14,15,16,17,18,19,20]
+    refresh_before:
+      weeks: 2
+  ctbb_poum_layer_planejament_derivat_excempt:
+    caches: [ctbb_poum_layer_planejament_derivat_excempt]
+    grids: [webmercator]
+    coverages: [ctbb]
+    levels: [13,14,15,16,17,18,19,20]
+    refresh_before:
+      weeks: 2
+  ctbb_poum_group_ambits_de_planejament_i_de_gestio:
+    caches: [ctbb_poum_group_ambits_de_planejament_i_de_gestio]
+    grids: [webmercator]
+    coverages: [ctbb]
+    levels: [13,14,15,16,17,18,19,20]
+    refresh_before:
+      weeks: 2
+  ctbb_poum_group_qualificacions:
+    caches: [ctbb_poum_group_qualificacions]
+    grids: [webmercator]
+    coverages: [ctbb]
+    levels: [13,14,15,16,17,18,19,20]
+    refresh_before:
+      weeks: 2
+  ctbb_poum_layer_regim_del_sol_especific:
+    caches: [ctbb_poum_layer_regim_del_sol_especific]
+    grids: [webmercator]
+    coverages: [ctbb]
+    levels: [13,14,15,16,17,18,19,20]
+    refresh_before:
+      weeks: 2
+  ctbb_poum_layer_regim_del_sol:
+    caches: [ctbb_poum_layer_regim_del_sol]
+    grids: [webmercator]
+    coverages: [ctbb]
+    levels: [13,14,15,16,17,18,19,20]
+    refresh_before:
+      weeks: 2
+  ctbb_guia:
+    caches: [ctbb_guia_layer_equipaments, ctbb_guia_layer_jocs_infantils, ctbb_guia_layer_corre_can, ctbb_guia_layer__nuclis_urbans, ctbb_guia_group_serveis]
+    grids: [webmercator]
+    coverages: [ctbb]
+    levels: [13,14,15,16,17,18,19,20]
+    refresh_before:
+      weeks: 2
+  ctbb_guia_group_serveis:
+    caches: [ctbb_guia_group_serveis]
+    grids: [webmercator]
+    coverages: [ctbb]
+    levels: [13,14,15,16,17,18,19,20]
+    refresh_before:
+      weeks: 2
+  ctbb_guia_layer_equipaments:
+    caches: [ctbb_guia_layer_equipaments]
+    grids: [webmercator]
+    coverages: [ctbb]
+    levels: [13,14,15,16,17,18,19,20]
+    refresh_before:
+      weeks: 2
+  ctbb_guia_layer_jocs_infantils:
+    caches: [ctbb_guia_layer_jocs_infantils]
+    grids: [webmercator]
+    coverages: [ctbb]
+    levels: [13,14,15,16,17,18,19,20]
+    refresh_before:
+      weeks: 2
+  ctbb_guia_layer_corre_can:
+    caches: [ctbb_guia_layer_corre_can]
+    grids: [webmercator]
+    coverages: [ctbb]
+    levels: [13,14,15,16,17,18,19,20]
+    refresh_before:
+      weeks: 2
+  ctbb_guia_layer__nuclis_urbans:
+    caches: [ctbb_guia_layer__nuclis_urbans]
+    grids: [webmercator]
+    coverages: [ctbb]
+    levels: [13,14,15,16,17,18,19,20]
+    refresh_before:
+      weeks: 2
+  ctbb_guia_group_classificacio_del_sol:
+    caches: [ctbb_guia_group_classificacio_del_sol]
+    grids: [webmercator]
+    coverages: [ctbb]
+    levels: [13,14,15,16,17,18,19,20]
+    refresh_before:
+      weeks: 2
+  ctbb_guia_layer_hidrants_daigua:
+    caches: [ctbb_guia_layer_hidrants_daigua]
+    grids: [webmercator]
+    coverages: [ctbb]
+    levels: [13,14,15,16,17,18,19,20]
+    refresh_before:
+      weeks: 2
+  ctbb_guia_buses:
+    caches: [ctbb_guia_group_bus_l1, ctbb_guia_group_bus_l2, ctbb_guia_group_bus_c2, ctbb_guia_group_bus_c6, ctbb_guia_group_bus_c7, ctbb_guia_group_bus_l66, ctbb_guia_group_bus_l67, ctbb_guia_group_bus_n41, ctbb_guia_group_bus_n51]
+    grids: [webmercator]
+    coverages: [ctbb]
+    levels: [13,14,15,16,17,18,19,20]
+    refresh_before:
+      weeks: 2
+  ctbb_guia_group_bus_l1:
+    caches: [ctbb_guia_group_bus_l1]
+    grids: [webmercator]
+    coverages: [ctbb]
+    levels: [13,14,15,16,17,18,19,20]
+    refresh_before:
+      weeks: 2
+  ctbb_guia_group_bus_l2:
+    caches: [ctbb_guia_group_bus_l2]
+    grids: [webmercator]
+    coverages: [ctbb]
+    levels: [13,14,15,16,17,18,19,20]
+    refresh_before:
+      weeks: 2
+  ctbb_guia_group_bus_c2:
+    caches: [ctbb_guia_group_bus_c2]
+    grids: [webmercator]
+    coverages: [ctbb]
+    levels: [13,14,15,16,17,18,19,20]
+    refresh_before:
+      weeks: 2
+  ctbb_guia_group_bus_c6:
+    caches: [ctbb_guia_group_bus_c6]
+    grids: [webmercator]
+    coverages: [ctbb]
+    levels: [13,14,15,16,17,18,19,20]
+    refresh_before:
+      weeks: 2
+  ctbb_guia_group_bus_c7:
+    caches: [ctbb_guia_group_bus_c7]
+    grids: [webmercator]
+    coverages: [ctbb]
+    levels: [13,14,15,16,17,18,19,20]
+    refresh_before:
+      weeks: 2
+  ctbb_guia_group_bus_l66:
+    caches: [ctbb_guia_group_bus_l66]
+    grids: [webmercator]
+    coverages: [ctbb]
+    levels: [13,14,15,16,17,18,19,20]
+    refresh_before:
+      weeks: 2
+  ctbb_guia_group_bus_l67:
+    caches: [ctbb_guia_group_bus_l67]
+    grids: [webmercator]
+    coverages: [ctbb]
+    levels: [13,14,15,16,17,18,19,20]
+    refresh_before:
+      weeks: 2
+  ctbb_guia_group_bus_n41:
+    caches: [ctbb_guia_group_bus_n41]
+    grids: [webmercator]
+    coverages: [ctbb]
+    levels: [13,14,15,16,17,18,19,20]
+    refresh_before:
+      weeks: 2
+  ctbb_guia_group_bus_n51:
+    caches: [ctbb_guia_group_bus_n51]
+    grids: [webmercator]
+    coverages: [ctbb]
+    levels: [13,14,15,16,17,18,19,20]
+    refresh_before:
+      weeks: 2
+  ctbb_guia_layer_parades:
+    caches: [ctbb_guia_layer_parades]
+    grids: [webmercator]
+    coverages: [ctbb]
+    levels: [13,14,15,16,17,18,19,20]
+    refresh_before:
+      weeks: 2
+  ctbb_activitats:
+    caches: [ctbb_activitats_layer_activitats]
+    grids: [webmercator]
+    coverages: [ctbb]
+    levels: [13,14,15,16,17,18,19,20]
+    refresh_before:
+      weeks: 2
+  ctbb_activitats_layer_activitats:
+    caches: [ctbb_activitats_layer_activitats]
+    grids: [webmercator]
+    coverages: [ctbb]
+    levels: [13,14,15,16,17,18,19,20]
+    refresh_before:
+      weeks: 2
+  ctbb_activitats_group_classificacio_del_sol:
+    caches: [ctbb_activitats_group_classificacio_del_sol]
+    grids: [webmercator]
+    coverages: [ctbb]
+    levels: [13,14,15,16,17,18,19,20]
+    refresh_before:
+      weeks: 2
+  ctbb_ortofotos_historial_group_carrers_i_portals:
+    caches: [ctbb_ortofotos_historial_group_carrers_i_portals]
+    grids: [webmercator]
+    coverages: [ctbb]
+    levels: [13,14,15,16,17,18,19,20]
+    refresh_before:
+      weeks: 2
+  ctbb_poum_parcel_layer_parcellari:
+    caches: [ctbb_poum_parcel_layer_parcellari]
+    grids: [webmercator]
+    coverages: [ctbb]
+    levels: [13,14,15,16,17,18,19,20]
+    refresh_before:
+      weeks: 2
+
+cleanups:
+
+coverages:
+  ctbb:
+    bbox: [1.92, 41.5, 2, 41.43]
+    srs: "EPSG:4326"
